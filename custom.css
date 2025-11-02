@@ -48,10 +48,10 @@
   --spacing-2xl: 3rem;      /* 48px */
   --spacing-3xl: 4rem;      /* 64px */
   
-  /* Border radius (Sophosic standard) */
-  --radius: 0.5rem;         /* 8px */
-  --radius-md: calc(var(--radius) - 2px);  /* 6px */
-  --radius-sm: calc(var(--radius) - 4px);  /* 4px */
+  /* Border radius (Sophosic standard - softer corners) */
+  --radius: 1rem;           /* 16px - increased for softer appearance */
+  --radius-md: 0.75rem;     /* 12px */
+  --radius-sm: 0.5rem;      /* 8px */
   --radius-full: 9999px;
 }
 
@@ -98,33 +98,89 @@ body {
 }
 
 /* ============================================================================
-   HEADER & NAVIGATION
+   HEADER & NAVIGATION (Enhanced to match marketing site)
    ============================================================================ */
 header {
   background-color: var(--color-background-primary);
   border-bottom: 1px solid var(--color-border-subtle);
-  padding: var(--spacing-lg) 0;
+  padding: var(--spacing-xl) 0;
+  /* Subtle backdrop for premium feel */
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  background: rgba(255, 255, 255, 0.95);
+}
+
+.dark header {
+  background: rgba(10, 10, 10, 0.95);
 }
 
 header .container {
   max-width: 1280px;
   margin: 0 auto;
   padding: 0 var(--spacing-xl);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+}
+
+/* Logo and title section */
+header .header-brand {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+header .logo {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
 }
 
 header h1 {
-  font-size: 1.875rem;      /* 30px */
+  font-size: 1.5rem;        /* 24px - Mobile */
   font-weight: 700;
   color: var(--color-text-primary);
   margin: 0;
   letter-spacing: -0.025em;
+  line-height: 1.1;
+}
+
+/* Responsive header typography matching marketing site */
+@media (min-width: 768px) {
+  header h1 {
+    font-size: 1.875rem;    /* 30px - Tablet */
+  }
+
+  header .logo {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+@media (min-width: 1024px) {
+  header {
+    padding: var(--spacing-2xl) 0;
+  }
+
+  header .container {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  header h1 {
+    font-size: 2rem;        /* 32px - Desktop */
+  }
 }
 
 nav {
-  margin-top: var(--spacing-md);
   display: flex;
-  gap: var(--spacing-sm);
+  gap: var(--spacing-xs);
   flex-wrap: wrap;
+  align-items: center;
 }
 
 nav a {
@@ -135,11 +191,17 @@ nav a {
   transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
   font-weight: 500;
   font-size: 0.875rem;     /* 14px */
+  white-space: nowrap;
 }
 
 nav a:hover {
   color: var(--color-text-primary);
   background-color: var(--color-background-secondary);
+  transform: translateY(-1px);
+}
+
+nav a:active {
+  transform: translateY(0);
 }
 
 /* ============================================================================
@@ -157,7 +219,7 @@ main {
 }
 
 .intro h2 {
-  font-size: 2.25rem;       /* 36px - Mobile hero */
+  font-size: 2rem;          /* 32px - Mobile hero (matching marketing site exactly) */
   font-weight: 700;
   color: var(--color-text-primary);
   margin: 0 0 var(--spacing-md) 0;
@@ -166,27 +228,31 @@ main {
 }
 
 .intro p {
-  font-size: 1.125rem;      /* 18px - Body large */
+  font-size: 1rem;          /* 16px - Body default */
   color: var(--color-text-secondary);
   max-width: 640px;
   margin: 0 auto;
   line-height: 1.6;
 }
 
-/* Responsive typography (matching marketing site) */
+/* Responsive typography (matching marketing site exactly) */
 @media (min-width: 768px) {
   .intro h2 {
     font-size: 2.75rem;     /* 44px - Tablet hero */
   }
-  
+
   .intro p {
-    font-size: 1.25rem;     /* 20px */
+    font-size: 1.125rem;    /* 18px - Body large */
   }
 }
 
 @media (min-width: 1024px) {
   .intro h2 {
     font-size: 3.5rem;      /* 56px - Desktop hero */
+  }
+
+  .intro p {
+    font-size: 1.25rem;     /* 20px - Body large desktop */
   }
 }
 
@@ -224,14 +290,14 @@ main {
 }
 
 /* ============================================================================
-   SERVICE CARDS (Sophosic Surface Elevation System)
+   SERVICE CARDS (Sophosic Surface Elevation System - Softer appearance)
    ============================================================================ */
 .service-card {
   background-color: var(--color-background-elevated);
   border: 1px solid var(--color-border-subtle);
-  border-radius: var(--radius);
-  padding: var(--spacing-lg);
-  margin-bottom: var(--spacing-md);
+  border-radius: var(--radius);      /* Now 1rem (16px) for softer corners */
+  padding: var(--spacing-xl);        /* Increased padding for more breathing room */
+  margin-bottom: var(--spacing-lg);  /* Increased margin for better separation */
   transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
   box-shadow: var(--shadow-sm);
 }
