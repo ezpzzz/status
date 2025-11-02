@@ -345,3 +345,22 @@ commitMessages:
 # - Enabled issue auto-assignment to ezpzzz
 # - Customized branding and i18n strings
 # ============================================================================
+
+# ============================================================================
+# CUSTOM STYLING
+# ============================================================================
+# Professional branding matching sophosic.ai design system
+# Typography: Geist Sans (loaded via custom CSS)
+# Colors: Sophosic brand palette with dark mode support
+# ============================================================================
+
+# Custom scripts to inject Geist font and custom CSS
+scripts:
+  - src: "https://cdn.jsdelivr.net/npm/geist@1.2.0/dist/font.css"
+    async: false
+
+# Custom head HTML for additional styling
+customHeadHtml: |
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/geist@1.2.0/dist/font.css">
+  <link rel="stylesheet" href="/assets/custom.css">
+
