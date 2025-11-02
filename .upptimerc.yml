@@ -166,6 +166,9 @@ status-website:
   # Options: light, dark, auto (respects user preference)
   theme: auto
 
+  # Custom theme URL - Load Sophosic brand styling
+  themeUrl: https://status.sophosic.ai/sophosic-theme.css
+
   # --------------------------------------------------------------------------
   # SEO & Social Meta Tags
   # --------------------------------------------------------------------------
@@ -348,12 +351,3 @@ commitMessages:
 # Colors: Sophosic brand palette with dark mode support
 # ============================================================================
 
-# Custom scripts to inject Geist font and custom CSS
-scripts:
-  - src: "https://cdn.jsdelivr.net/npm/geist@1.2.0/dist/font.css"
-    async: false
-
-# Custom head HTML - Loads fonts and Sophosic brand theme
-customHeadHtml: |
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/geist@1.2.0/dist/font.css">
-  <link rel="stylesheet" href="/sophosic-theme.css">
