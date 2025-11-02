@@ -1,36 +1,347 @@
-# Change these first
-owner: upptime # Your GitHub organization or username, where this repository lives
-repo: upptime # The name of this repository
+# ============================================================================
+# Sophosic Platform Status Page Configuration - Upptime
+# ============================================================================
+# Documentation: https://upptime.js.org/docs/configuration
+# Repository: https://github.com/ezpzzz/status
+# Status Page: https://status.sophosic.ai
+# ============================================================================
+
+# ============================================================================
+# REPOSITORY CONFIGURATION (REQUIRED)
+# ============================================================================
+owner: ezpzzz # GitHub username/organization
+repo: status  # Repository name
+
+# ============================================================================
+# MONITORED SERVICES - Sophosic Platform
+# ============================================================================
+# All Sophosic services monitored with appropriate thresholds and health checks
+# Check interval: Every 5 minutes (GitHub Actions minimum)
+# ============================================================================
 
 sites:
-  - name: Google
-    url: https://www.google.com
-  - name: Wikipedia
-    url: https://en.wikipedia.org
-  - name: Hacker News
-    url: https://news.ycombinator.com
-  - name: Test Broken Site
-    url: https://thissitedoesnotexist.koj.co
-  - name: IPv6 test
-    url: forwardemail.net
-    port: 80
-    check: "tcp-ping"
-    ipv6: true
+  # --------------------------------------------------------------------------
+  # PRIMARY APPLICATION (app.sophosic.ai)
+  # --------------------------------------------------------------------------
+  # Main user-facing application frontend built with Next.js 15.5.6
+  # Deployed on Render (ohio region) as web service
+  - name: Sophosic App
+    url: https://app.sophosic.ai/
+    icon: 🚀
+    # Allow redirects and normal 200 responses
+    expectedStatusCodes:
+      - 200
+      - 301
+      - 302
+    # 5 second threshold accounts for cold starts and asset loading
+    maxResponseTime: 5000
+    # Check page load, not just connectivity
+    assignees:
+      - ezpzzz
+
+  # --------------------------------------------------------------------------
+  # API BACKEND - HEALTH CHECK (api.sophosic.ai/ready)
+  # --------------------------------------------------------------------------
+  # RFC-compliant /ready endpoint for load balancer health checks
+  # Lightweight check with no database queries
+  - name: API Backend
+    url: https://api.sophosic.ai/ready
+    icon: ⚡
+    expectedStatusCodes:
+      - 200
+    # 3 second threshold for fast health check
+    maxResponseTime: 3000
+    # Check response body for unhealthy status
+    __dangerous__body_down: '"status":"unhealthy"'
+    __dangerous__body_down_if_text_missing: '"status"'
+    assignees:
+      - ezpzzz
+
+  # --------------------------------------------------------------------------
+  # API HEALTH - LIGHTWEIGHT PING (api.sophosic.ai/api/v2/health/ping)
+  # --------------------------------------------------------------------------
+  # Ultra-lightweight endpoint with minimal overhead
+  # Returns simple status without dependency checks
+  - name: API Health Check
+    url: https://api.sophosic.ai/api/v2/health/ping
+    icon: 💚
+    expectedStatusCodes:
+      - 200
+    # 2 second threshold - should be very fast
+    maxResponseTime: 2000
+    # Validate response contains status field
+    __dangerous__body_down: '"status":"degraded"'
+    __dangerous__body_down_if_text_missing: '"status"'
+    assignees:
+      - ezpzzz
+
+  # --------------------------------------------------------------------------
+  # API COMPREHENSIVE HEALTH (api.sophosic.ai/api/v2/health/)
+  # --------------------------------------------------------------------------
+  # Full health check including database, Redis, circuit breaker status
+  # Slower due to dependency checks but provides detailed diagnostics
+  - name: API Detailed Health
+    url: https://api.sophosic.ai/api/v2/health/
+    icon: 🔍
+    expectedStatusCodes:
+      - 200
+    # 5 second threshold for comprehensive checks
+    maxResponseTime: 5000
+    # Check for unhealthy or degraded status
+    __dangerous__body_down: '"status":"unhealthy"'
+    assignees:
+      - ezpzzz
+
+  # --------------------------------------------------------------------------
+  # DOCUMENTATION SITE (docs.sophosic.ai)
+  # --------------------------------------------------------------------------
+  # Platform documentation built with Nextra 4.6.0
+  # Deployed on Render as web service (temporary workaround for Nextra bug)
+  - name: Documentation
+    url: https://docs.sophosic.ai/
+    icon: 📚
+    expectedStatusCodes:
+      - 200
+    # 4 second threshold for Nextra page load
+    maxResponseTime: 4000
+    assignees:
+      - ezpzzz
+
+  # --------------------------------------------------------------------------
+  # MARKETING SITE (sophosic.ai)
+  # --------------------------------------------------------------------------
+  # Public marketing website built with Next.js
+  # Deployed on Render (ohio region) as web service
+  - name: Marketing Site
+    url: https://sophosic.ai/
+    icon: 🌐
+    expectedStatusCodes:
+      - 200
+      - 301
+      - 302
+    # 4 second threshold for marketing page load
+    maxResponseTime: 4000
+    assignees:
+      - ezpzzz
+
+# ============================================================================
+# STATUS WEBSITE CONFIGURATION
+# ============================================================================
+# Public-facing status page settings with custom branding
+# ============================================================================
 
 status-website:
-  # Add your custom domain name, or remove the `cname` line if you don't have a domain
-  # Uncomment the `baseUrl` line if you don't have a custom domain and add your repo name there
-  cname: demo.upptime.js.org
-  # baseUrl: /your-repo-name
-  logoUrl: https://raw.githubusercontent.com/upptime/upptime.js.org/master/static/img/icon.svg
-  name: Upptime
-  introTitle: "**Upptime** is the open-source uptime monitor and status page, powered entirely by GitHub."
-  introMessage: This is a sample status page which uses **real-time** data from our [GitHub repository](https://github.com/upptime/upptime). No server required — just GitHub Actions, Issues, and Pages. [**Get your own for free**](https://github.com/upptime/upptime)
+  # --------------------------------------------------------------------------
+  # Custom Domain Configuration
+  # --------------------------------------------------------------------------
+  # CNAME record: status.sophosic.ai → ezpzzz.github.io
+  # SSL: Auto-provisioned by GitHub Pages (Let's Encrypt)
+  cname: status.sophosic.ai
+
+  # --------------------------------------------------------------------------
+  # Branding & Identity
+  # --------------------------------------------------------------------------
+  name: Sophosic Status
+  logoUrl: https://sophosic.ai/logo.svg
+
+  # --------------------------------------------------------------------------
+  # Page Content
+  # --------------------------------------------------------------------------
+  introTitle: "**Sophosic Platform** Status"
+  introMessage: |
+    Real-time monitoring and status updates for all Sophosic services.
+
+    All systems are monitored every 5 minutes. Subscribe below to receive instant notifications when incidents occur.
+
+  # --------------------------------------------------------------------------
+  # Navigation Links
+  # --------------------------------------------------------------------------
   navbar:
     - title: Status
       href: /
+    - title: Documentation
+      href: https://docs.sophosic.ai
+    - title: Sophosic
+      href: https://sophosic.ai
     - title: GitHub
       href: https://github.com/$OWNER/$REPO
 
-# Upptime also supports notifications, assigning issues, and more
-# See https://upptime.js.org/docs/configuration
+  # --------------------------------------------------------------------------
+  # Theme Configuration
+  # --------------------------------------------------------------------------
+  # Options: light, dark, auto (respects user preference)
+  theme: auto
+
+  # --------------------------------------------------------------------------
+  # SEO & Social Meta Tags
+  # --------------------------------------------------------------------------
+  metaTags:
+    - name: "description"
+      content: "Real-time status and uptime monitoring for Sophosic Platform services including App, API, Documentation, and Marketing sites."
+    - name: "og:title"
+      content: "Sophosic Platform Status"
+    - name: "og:description"
+      content: "Check the current operational status of all Sophosic services"
+    - name: "og:image"
+      content: "https://sophosic.ai/og-image.png"
+    - name: "twitter:card"
+      content: "summary_large_image"
+    - name: "twitter:title"
+      content: "Sophosic Platform Status"
+    - name: "twitter:description"
+      content: "Real-time status monitoring for Sophosic services"
+
+# ============================================================================
+# GITHUB ISSUES CONFIGURATION
+# ============================================================================
+# Auto-assign incidents to team members for rapid response
+# ============================================================================
+
+assignees:
+  - ezpzzz
+  # Add more team members:
+  # - teammate1
+  # - teammate2
+
+# ============================================================================
+# USER AGENT CONFIGURATION
+# ============================================================================
+# Identify Upptime monitoring requests in server logs
+# ============================================================================
+
+user-agent: sophosic-status-monitor
+
+# ============================================================================
+# INTERNATIONALIZATION (i18n)
+# ============================================================================
+# Customize status page text and labels
+# ============================================================================
+
+i18n:
+  # Status indicators
+  activeIncidents: Active Incidents
+  allSystemsOperational: All Systems Operational
+  incidentReport: Incident Report
+  activeIncidentSummary: Opened $DATE with $POSTS posts
+  incidentTitle: Incident $NUMBER Details
+  incidentDetails: Incident Details
+  incidentFixed: Fixed
+  incidentOngoing: Ongoing
+  incidentOpenedAt: Opened at
+  incidentClosedAt: Closed at
+  incidentSubscribe: Subscribe to Updates
+  incidentSubscribeText: Subscribe to receive email notifications
+  incidentViewOnGitHub: View Details on GitHub
+
+  # Status messages
+  up: 🟢 Operational
+  down: 🔴 Down
+  degraded: 🟡 Degraded
+
+  # Response time
+  ms: ms
+  responseTime: Response Time
+  responseTimeGraphAlt: Response time graph
+
+  # Uptime periods
+  uptime: Uptime
+  uptimeDay: 24 hours
+  uptimeWeek: 7 days
+  uptimeMonth: 30 days
+  uptimeYear: 1 year
+
+  # Footer
+  footer: |
+    Powered by [Upptime](https://upptime.js.org) •
+    [Sophosic Platform](https://sophosic.ai) •
+    [Documentation](https://docs.sophosic.ai)
+
+  # Live status
+  liveStatus: Live Status
+  overallUptime: Overall Uptime
+  averageResponseTime: Average Response Time
+  sevelDayResponseTime: 7-day Response Time
+
+# ============================================================================
+# NOTIFICATION CONFIGURATION (Optional)
+# ============================================================================
+# Uncomment and configure to enable real-time notifications
+# Set webhook URLs as GitHub repository secrets
+# ============================================================================
+
+# notifications:
+#   # Slack Integration
+#   - type: slack
+#     webhook: $SLACK_WEBHOOK_URL
+#
+#   # Discord Integration
+#   - type: discord
+#     webhook: $DISCORD_WEBHOOK_URL
+#
+#   # Telegram Integration
+#   - type: telegram
+#     botToken: $TELEGRAM_BOT_TOKEN
+#     chatId: $TELEGRAM_CHAT_ID
+
+# ============================================================================
+# WORKFLOW SCHEDULE CONFIGURATION (Advanced)
+# ============================================================================
+# Default schedules work well for most use cases
+# Only modify if you understand cron syntax and have specific requirements
+# ============================================================================
+
+# workflowSchedule:
+#   graphs: "0 0 * * *"          # Generate graphs daily at midnight UTC
+#   responseTime: "0 */6 * * *"  # Measure response time every 6 hours
+#   staticSite: "0 1 * * *"      # Build status page daily at 1 AM UTC
+#   summary: "0 0 * * *"         # Generate summary daily at midnight UTC
+#   updateTemplate: "0 0 * * *"  # Check for template updates daily
+#   updates: "0 3 * * *"         # Apply updates daily at 3 AM UTC
+#   uptime: "*/5 * * * *"        # Monitor services every 5 minutes
+
+# ============================================================================
+# COMMIT MESSAGE CUSTOMIZATION (Optional)
+# ============================================================================
+# Customize automated commit messages for status updates
+# ============================================================================
+
+commitMessages:
+  readmeContent: ":pencil: Update summary in README [skip ci] [upptime]"
+  summaryJson: ":card_file_box: Update status summary [skip ci] [upptime]"
+  statusChange: "$EMOJI $SITE_NAME is $STATUS ($RESPONSE_CODE in $RESPONSE_TIME ms) [skip ci] [upptime]"
+  graphsUpdate: ":bento: Update graphs [skip ci] [upptime]"
+
+# ============================================================================
+# CONFIGURATION NOTES
+# ============================================================================
+#
+# Response Time Thresholds Rationale:
+# - App Frontend (5s): Accounts for cold starts, Next.js compilation, asset loading
+# - API /ready (3s): Lightweight health check with no heavy operations
+# - API /ping (2s): Ultra-lightweight, should return immediately
+# - API /health (5s): Comprehensive check including database and Redis
+# - Docs (4s): Nextra static site generation can take time
+# - Marketing (4s): Next.js with dynamic content and API calls
+#
+# Health Check Body Validation:
+# - __dangerous__body_down: Treats response as down if body contains this text
+# - __dangerous__body_down_if_text_missing: Treats as down if text is missing
+# - Used to catch "soft failures" where HTTP 200 returned but service is degraded
+#
+# Monitoring Frequency:
+# - GitHub Actions minimum interval: 5 minutes
+# - Adequate for SaaS monitoring (faster intervals increase false positives)
+# - Balances detection speed with infrastructure load
+#
+# ============================================================================
+
+# ============================================================================
+# MAINTENANCE LOG
+# ============================================================================
+# 2025-11-02: Initial configuration created for Sophosic Platform
+# - Added all 6 primary services (App, API x3, Docs, Marketing)
+# - Configured custom domain: status.sophosic.ai
+# - Set up health check body validation for API endpoints
+# - Enabled issue auto-assignment to ezpzzz
+# - Customized branding and i18n strings
+# ============================================================================
