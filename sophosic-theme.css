@@ -3,6 +3,9 @@
    Professional, clean design matching sophosic.ai marketing site
    ============================================================================= */
 
+/* Import Geist Sans font from CDN */
+@import url('https://cdn.jsdelivr.net/npm/geist@1.2.0/dist/font.css');
+
 /* Font Override - Geist Sans */
 body {
   font-family: 'Geist Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
