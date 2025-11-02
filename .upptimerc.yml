@@ -363,4 +363,4 @@ scripts:
 customHeadHtml: |
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/geist@1.2.0/dist/font.css">
   <link rel="stylesheet" href="/assets/custom.css">
-
+  <link rel="stylesheet" href="/custom.css">
