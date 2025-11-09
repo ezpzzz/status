@@ -1,7 +1,7 @@
 url: https://api.sophosic.ai/ready
-status: down
-code: 502
-responseTime: 386
-lastUpdated: 2025-11-09T12:00:35.132Z
+status: up
+code: 200
+responseTime: 111
+lastUpdated: 2025-11-09T12:13:11.399Z
 startTime: 2025-11-02T22:21:35.879Z
 generator: Upptime <https://github.com/upptime/upptime>
