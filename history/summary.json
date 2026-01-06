@@ -83,7 +83,7 @@
     "slug": "api-detailed-health",
     "status": "down",
     "uptime": "97.80%",
-    "uptimeDay": "98.83%",
+    "uptimeDay": "98.87%",
     "uptimeWeek": "92.22%",
     "uptimeMonth": "96.75%",
     "uptimeYear": "97.80%",
@@ -93,7 +93,7 @@
     "timeMonth": 78,
     "timeYear": 86,
     "dailyMinutesDown": {
-      "2026-01-05": 17,
+      "2026-01-05": 16,
       "2026-01-04": 713,
       "2026-01-03": 55,
       "2025-12-27": 70,
