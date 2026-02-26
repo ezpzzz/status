@@ -1,7 +1,7 @@
 url: https://api.sophosic.ai/api/v2/health/ping
 status: up
 code: 200
-responseTime: 100
-lastUpdated: 2026-02-25T23:10:20.669Z
+responseTime: 117
+lastUpdated: 2026-02-26T23:09:29.481Z
 startTime: 2025-11-02T22:21:36.396Z
 generator: Upptime <https://github.com/upptime/upptime>
