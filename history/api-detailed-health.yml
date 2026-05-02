@@ -1,7 +1,7 @@
 url: https://api.sophosic.ai/api/v2/health/
-status: down
-code: 502
-responseTime: 42
-lastUpdated: 2026-05-02T19:15:53.716Z
+status: up
+code: 200
+responseTime: 29
+lastUpdated: 2026-05-02T19:39:46.154Z
 startTime: 2025-11-02T22:21:36.730Z
 generator: Upptime <https://github.com/upptime/upptime>
