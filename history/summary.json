@@ -31,14 +31,14 @@
     "icon": "https://icons.duckduckgo.com/ip3/api.sophosic.ai.ico",
     "slug": "api-backend",
     "status": "down",
-    "uptime": "99.07%",
-    "uptimeDay": "99.96%",
-    "uptimeWeek": "99.99%",
-    "uptimeMonth": "99.68%",
-    "uptimeYear": "99.07%",
+    "uptime": "99.05%",
+    "uptimeDay": "96.84%",
+    "uptimeWeek": "99.55%",
+    "uptimeMonth": "99.58%",
+    "uptimeYear": "99.05%",
     "time": 389,
-    "timeDay": 205,
-    "timeWeek": 319,
+    "timeDay": 266,
+    "timeWeek": 327,
     "timeMonth": 353,
     "timeYear": 389,
     "dailyMinutesDown": {
@@ -80,7 +80,7 @@
       "2026-05-07": 78,
       "2026-05-10": 19,
       "2026-05-16": 20,
-      "2026-06-05": 1
+      "2026-06-05": 46
     }
   },
   {
@@ -89,15 +89,15 @@
     "icon": "https://icons.duckduckgo.com/ip3/api.sophosic.ai.ico",
     "slug": "api-health-check",
     "status": "down",
-    "uptime": "99.09%",
-    "uptimeDay": "99.97%",
-    "uptimeWeek": "100.00%",
-    "uptimeMonth": "99.69%",
-    "uptimeYear": "99.09%",
+    "uptime": "99.08%",
+    "uptimeDay": "96.85%",
+    "uptimeWeek": "99.55%",
+    "uptimeMonth": "99.58%",
+    "uptimeYear": "99.08%",
     "time": 102,
-    "timeDay": 98,
-    "timeWeek": 117,
-    "timeMonth": 130,
+    "timeDay": 101,
+    "timeWeek": 116,
+    "timeMonth": 129,
     "timeYear": 102,
     "dailyMinutesDown": {
       "2025-11-08": 306,
@@ -137,7 +137,7 @@
       "2026-05-07": 78,
       "2026-05-10": 18,
       "2026-05-16": 20,
-      "2026-06-05": 0
+      "2026-06-05": 45
     }
   },
   {
@@ -146,14 +146,14 @@
     "icon": "https://icons.duckduckgo.com/ip3/api.sophosic.ai.ico",
     "slug": "api-detailed-health",
     "status": "down",
-    "uptime": "98.61%",
-    "uptimeDay": "99.99%",
-    "uptimeWeek": "100.00%",
-    "uptimeMonth": "99.87%",
-    "uptimeYear": "98.61%",
+    "uptime": "98.60%",
+    "uptimeDay": "96.87%",
+    "uptimeWeek": "99.55%",
+    "uptimeMonth": "99.76%",
+    "uptimeYear": "98.60%",
     "time": 90,
-    "timeDay": 94,
-    "timeWeek": 98,
+    "timeDay": 105,
+    "timeWeek": 101,
     "timeMonth": 127,
     "timeYear": 90,
     "dailyMinutesDown": {
@@ -207,7 +207,7 @@
       "2026-05-06": 20,
       "2026-05-10": 18,
       "2026-05-16": 20,
-      "2026-06-05": 0
+      "2026-06-05": 45
     }
   },
   {
