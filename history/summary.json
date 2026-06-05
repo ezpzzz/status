@@ -32,15 +32,15 @@
     "slug": "api-backend",
     "status": "down",
     "uptime": "99.07%",
-    "uptimeDay": "100.00%",
-    "uptimeWeek": "100.00%",
-    "uptimeMonth": "99.69%",
+    "uptimeDay": "99.96%",
+    "uptimeWeek": "99.99%",
+    "uptimeMonth": "99.68%",
     "uptimeYear": "99.07%",
-    "time": 390,
-    "timeDay": 316,
-    "timeWeek": 351,
-    "timeMonth": 359,
-    "timeYear": 390,
+    "time": 389,
+    "timeDay": 205,
+    "timeWeek": 319,
+    "timeMonth": 353,
+    "timeYear": 389,
     "dailyMinutesDown": {
       "2025-11-08": 306,
       "2025-11-17": 21,
@@ -79,7 +79,8 @@
       "2026-05-06": 21,
       "2026-05-07": 78,
       "2026-05-10": 19,
-      "2026-05-16": 20
+      "2026-05-16": 20,
+      "2026-06-05": 1
     }
   },
   {
@@ -89,14 +90,14 @@
     "slug": "api-health-check",
     "status": "down",
     "uptime": "99.09%",
-    "uptimeDay": "100.00%",
+    "uptimeDay": "99.97%",
     "uptimeWeek": "100.00%",
     "uptimeMonth": "99.69%",
     "uptimeYear": "99.09%",
     "time": 102,
-    "timeDay": 90,
-    "timeWeek": 119,
-    "timeMonth": 131,
+    "timeDay": 98,
+    "timeWeek": 117,
+    "timeMonth": 130,
     "timeYear": 102,
     "dailyMinutesDown": {
       "2025-11-08": 306,
@@ -135,7 +136,8 @@
       "2026-05-06": 20,
       "2026-05-07": 78,
       "2026-05-10": 18,
-      "2026-05-16": 20
+      "2026-05-16": 20,
+      "2026-06-05": 0
     }
   },
   {
@@ -145,14 +147,14 @@
     "slug": "api-detailed-health",
     "status": "down",
     "uptime": "98.61%",
-    "uptimeDay": "100.00%",
+    "uptimeDay": "99.99%",
     "uptimeWeek": "100.00%",
     "uptimeMonth": "99.87%",
     "uptimeYear": "98.61%",
     "time": 90,
-    "timeDay": 88,
-    "timeWeek": 97,
-    "timeMonth": 128,
+    "timeDay": 94,
+    "timeWeek": 98,
+    "timeMonth": 127,
     "timeYear": 90,
     "dailyMinutesDown": {
       "2025-11-08": 306,
@@ -204,7 +206,8 @@
       "2026-05-04": 42,
       "2026-05-06": 20,
       "2026-05-10": 18,
-      "2026-05-16": 20
+      "2026-05-16": 20,
+      "2026-06-05": 0
     }
   },
   {
@@ -236,11 +239,11 @@
     "icon": "https://icons.duckduckgo.com/ip3/sophosic.ai.ico",
     "slug": "marketing-site",
     "status": "down",
-    "uptime": "99.55%",
+    "uptime": "99.56%",
     "uptimeDay": "100.00%",
     "uptimeWeek": "100.00%",
     "uptimeMonth": "100.00%",
-    "uptimeYear": "99.55%",
+    "uptimeYear": "99.56%",
     "time": 260,
     "timeDay": 140,
     "timeWeek": 183,
